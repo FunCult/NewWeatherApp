@@ -1,0 +1,249 @@
+/* FLEX LAYOUT - CENTER EVERYTHING */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  background: transparent;
+  color: pink;
+}
+
+/* Pointer cursor on interactive stuff */
+button,
+input[type="submit"],
+.chip,
+a,
+#current-location-button,
+#forecast .day {
+  cursor: pointer; /* use the css you already have; this just adds pointer */
+}
+
+/* Headings */
+h1 {
+  color: pink;
+  text-align: center;
+}
+h3 {
+  color: pink;
+  filter: saturate(353deg);
+}
+h3:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
+h4 {
+  color: coral;
+  filter: saturate(353deg);
+  margin: 0.5rem 0 0;
+  text-transform: capitalize;
+}
+h4:hover {
+  color: pink;
+  filter: hue-rotate(353deg);
+  transition: 0.4s;
+}
+
+/* Paragraphs */
+p {
+  margin: auto;
+  padding: 0;
+  color: coral;
+  font-size: 27px;
+  filter: saturate(353deg);
+}
+p:hover {
+  color: pink;
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
+
+/* Image hover */
+img:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+  cursor: crosshair;
+}
+
+/* App wrapper */
+.weather-app-wrapper {
+  max-width: 860px;
+  margin: 30px auto;
+  color: pink;
+}
+.weather-app {
+  padding: 20px;
+  border: 3px solid coral; /* thicker, more visible border */
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px) saturate(120%);
+  text-align: center; /* centers text and inline elements */
+}
+.cloud img {
+  max-width: 80px; /* smaller size */
+  display: block;
+  margin: 0 auto 8px; /* perfectly centered */
+}
+/* Buttons */
+.submit {
+  color: coral;
+  border: 1px solid #fdbc5b;
+  border-radius: 10px;
+  padding: 8px 14px;
+  background: #fff5ea;
+}
+.submit:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
+
+/* Special text styles */
+.pacifica {
+  color: sandybrown;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+.rainbow-text {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+.rainbow-text:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
+
+/* Layout helpers */
+.temp-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Links & units */
+footer a {
+  color: #ffb66c;
+  text-decoration: underline;
+}
+.units a {
+  color: #ff7ab6;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer; /* make units clickable-looking */
+}
+.units a.active {
+  filter: hue-rotate(353deg);
+  color: #e62a97;
+  text-decoration: underline;
+}
+
+/* Location button */
+#current-location-button {
+  border-radius: 50%;
+  margin: 10px 0;
+  background: radial-gradient(circle at 30% 30%, #fdbc5b, #d98f29);
+  border: 4px solid #111;
+  width: 84px;
+  height: 84px;
+  font-size: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 6px 16px rgba(0, 0, 0, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+#current-location-button:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: hue-rotate(45deg) saturate(1.4);
+}
+
+/* Forecast boxes */
+#forecast .day {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 8px 6px;
+}
+
+/* Autocomplete list */
+.ac-wrap {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+}
+.ac-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  margin-top: 4px;
+  max-height: 260px;
+  overflow: auto;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.ac-item {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.ac-item:hover {
+  background: #222;
+  filter: hue-rotate(353deg);
+}
+
+/* Favorites */
+.fav-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+.chip {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.chip:hover {
+  filter: hue-rotate(353deg);
+  background: #222;
+}
+.chip .del {
+  margin-left: 6px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.chip .del:hover {
+  opacity: 1;
+}
+.btn-save {
+  border-radius: 999px;
+  padding: 6px 12px;
+  border: 1px solid #fdbc5b;
+  background: #fff5ea;
+  color: #111;
+  font-weight: 800;
+  cursor: pointer;
+}
