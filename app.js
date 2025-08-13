@@ -1,12 +1,11 @@
 /* ===============================
    FUNCULT Weather — OpenWeather (keyed)
-   Drop this file in as app.js
-   =============================== */
+   
 
 const API_KEY = "159579a67bddf3fe42a90d0145993baf"; // ← your key
 const DEFAULT_CITY = "Hermosa Beach, US";
 
-/* ---------- State ---------- */
+
 let currentUnits = "metric"; // "metric" | "imperial"
 let lastCityLabel = DEFAULT_CITY;
 let lastCoords = null; // { lat, lon }
@@ -33,11 +32,9 @@ const cLink = document.getElementById("celsius-link");
 const fLink = document.getElementById("fahrenheit-link");
 const wheelBtn = document.getElementById("current-location-button");
 
-// Favorites (optional: only used if present)
 const favBar = document.getElementById("favBar");
 const saveFavBtn = document.getElementById("saveFav");
 
-/* ---------- Helpers ---------- */
 function formatDate(tsMs) {
   const d = new Date(tsMs);
   const days = [
@@ -62,7 +59,7 @@ function msToMph(ms) {
 }
 
 /* ---------- OpenWeather API ---------- */
-// Geocoding suggestions (autocomplete)
+
 async function geocodeSuggest(q) {
   const url = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
     q
@@ -72,7 +69,6 @@ async function geocodeSuggest(q) {
   return res.json();
 }
 
-// Current weather (metric baseline)
 async function weatherByCityLabel(label) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     label
@@ -88,7 +84,7 @@ async function weatherByCoords(lat, lon) {
   return res.json();
 }
 
-// 5-day / 3-hour forecast (metric baseline)
+// 5-day / 3-hour forecast
 async function forecastByCityLabel(label) {
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
     label
@@ -104,7 +100,6 @@ async function forecastByCoords(lat, lon) {
   return res.json();
 }
 
-/* ---------- Renderers ---------- */
 function renderCurrent(data) {
   // Save baselines in metric for quick °C/°F toggle
   celsiusTemperature = data.main?.temp ?? null;
@@ -132,7 +127,6 @@ function renderCurrent(data) {
   }
 }
 
-// Choose ~noon per day for compact forecast cards
 function pickNoonForecasts(list) {
   const byDay = {};
   list.forEach((item) => {
@@ -175,7 +169,6 @@ function renderForecast() {
     .join("");
 }
 
-/* ---------- Flows ---------- */
 async function searchCity(label) {
   try {
     lastCityLabel = label;
@@ -188,7 +181,6 @@ async function searchCity(label) {
     renderCurrent(w);
     renderForecast();
   } catch (err) {
-    // graceful fallback
     elCity.textContent = "City not found";
     elTemp.textContent = "--";
     elDesc.textContent = "—";
@@ -218,12 +210,10 @@ async function showPosition(pos) {
   }
 }
 
-/* ---------- Units toggle ---------- */
 function setUnits(u) {
   if (u === currentUnits) return;
   currentUnits = u;
 
-  // Toggle link styles if present
   if (cLink && fLink) {
     if (currentUnits === "metric") {
       cLink.classList.add("active");
@@ -234,7 +224,6 @@ function setUnits(u) {
     }
   }
 
-  // Re-render using stored baselines
   if (celsiusTemperature != null) {
     if (currentUnits === "metric") {
       elTemp.textContent = Math.round(celsiusTemperature);
@@ -249,7 +238,6 @@ function setUnits(u) {
   renderForecast();
 }
 
-/* ---------- Events ---------- */
 // °C / °F links
 if (cLink)
   cLink.addEventListener("click", (e) => {
@@ -284,7 +272,6 @@ if (wheelBtn) {
   });
 }
 
-/* ---------- Autocomplete ---------- */
 let acTimer = null;
 if (cityInput) {
   cityInput.addEventListener("input", () => {
@@ -347,7 +334,6 @@ if (acList) {
   });
 }
 
-/* ---------- Favorites (optional) ---------- */
 const LS_KEY = "funcult:favorites";
 function getFavs() {
   try {
@@ -410,6 +396,5 @@ if (saveFavBtn) {
   });
 }
 
-/* ---------- Boot ---------- */
 if (favBar) loadFavs();
 searchCity(DEFAULT_CITY);
