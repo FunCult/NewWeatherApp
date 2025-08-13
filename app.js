@@ -1,7 +1,6 @@
-/* ===============================
+
    FUNCULT Weather — OpenWeather (keyed)
-   Drop this file in as app.js
-   =============================== */
+  
 
 const API_KEY = "159579a67bddf3fe42a90d0145993baf"; // ← your key
 const DEFAULT_CITY = "Hermosa Beach, US";
@@ -218,7 +217,7 @@ async function showPosition(pos) {
   }
 }
 
-/* ---------- Units toggle ---------- */
+/units toggle -
 function setUnits(u) {
   if (u === currentUnits) return;
   currentUnits = u;
@@ -234,7 +233,6 @@ function setUnits(u) {
     }
   }
 
-  // Re-render using stored baselines
   if (celsiusTemperature != null) {
     if (currentUnits === "metric") {
       elTemp.textContent = Math.round(celsiusTemperature);
@@ -273,7 +271,7 @@ if (form) {
   });
 }
 
-// Geolocation (wheel button)
+
 if (wheelBtn) {
   wheelBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -284,7 +282,7 @@ if (wheelBtn) {
   });
 }
 
-/* ---------- Autocomplete ---------- */
+
 let acTimer = null;
 if (cityInput) {
   cityInput.addEventListener("input", () => {
@@ -347,7 +345,7 @@ if (acList) {
   });
 }
 
-/* ---------- Favorites (optional) ---------- */
+
 const LS_KEY = "funcult:favorites";
 function getFavs() {
   try {
@@ -413,3 +411,4 @@ if (saveFavBtn) {
 /* ---------- Boot ---------- */
 if (favBar) loadFavs();
 searchCity(DEFAULT_CITY);
+
