@@ -101,7 +101,13 @@ img:hover {
   transition: 0.4s;
   filter: hue-rotate(353deg);
 }
-
+#search-form {
+  color: pink;
+}
+#search-form:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
 /* Special text styles */
 .pacifica {
   color: sandybrown;
