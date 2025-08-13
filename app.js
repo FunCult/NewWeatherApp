@@ -1,11 +1,12 @@
 /* ===============================
    FUNCULT Weather — OpenWeather (keyed)
-   
+================================= */
 
-const API_KEY = "159579a67bddf3fe42a90d0145993baf"; // ← your key
-const DEFAULT_CITY = "Hermosa Beach, US";
+// ----- CONFIG -----
+const API_KEY = "159579a67bddf3fe42a90d0145993baf"; // (public in client code)
+const DEFAULT_CITY = "Hermosa Beach, US"; // one source of truth
 
-
+// ----- STATE -----
 let currentUnits = "metric"; // "metric" | "imperial"
 let lastCityLabel = DEFAULT_CITY;
 let lastCoords = null; // { lat, lon }
@@ -35,6 +36,7 @@ const wheelBtn = document.getElementById("current-location-button");
 const favBar = document.getElementById("favBar");
 const saveFavBtn = document.getElementById("saveFav");
 
+/* ---------- Utils ---------- */
 function formatDate(tsMs) {
   const d = new Date(tsMs);
   const days = [
@@ -50,16 +52,10 @@ function formatDate(tsMs) {
   const mm = String(d.getMinutes()).padStart(2, "0");
   return `${days[d.getDay()]} ${hh}:${mm} 🕙(✿◠‿◠)`;
 }
-
-function toF(c) {
-  return (c * 9) / 5 + 32;
-}
-function msToMph(ms) {
-  return ms * 2.23694;
-}
+const toF = (c) => (c * 9) / 5 + 32;
+const msToMph = (ms) => ms * 2.23694;
 
 /* ---------- OpenWeather API ---------- */
-
 async function geocodeSuggest(q) {
   const url = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
     q
@@ -100,8 +96,8 @@ async function forecastByCoords(lat, lon) {
   return res.json();
 }
 
+/* ---------- Render ---------- */
 function renderCurrent(data) {
-  // Save baselines in metric for quick °C/°F toggle
   celsiusTemperature = data.main?.temp ?? null;
   windMS = data.wind?.speed ?? null;
 
@@ -133,9 +129,8 @@ function pickNoonForecasts(list) {
     const d = new Date(item.dt * 1000);
     const key = d.toLocaleDateString();
     const score = Math.abs(12 - d.getHours());
-    if (!(key in byDay) || score < byDay[key].score) {
+    if (!(key in byDay) || score < byDay[key].score)
       byDay[key] = { item, score };
-    }
   });
   return Object.values(byDay)
     .slice(0, 6)
@@ -169,6 +164,7 @@ function renderForecast() {
     .join("");
 }
 
+/* ---------- Actions ---------- */
 async function searchCity(label) {
   try {
     lastCityLabel = label;
@@ -238,6 +234,7 @@ function setUnits(u) {
   renderForecast();
 }
 
+/* ---------- Events ---------- */
 // °C / °F links
 if (cLink)
   cLink.addEventListener("click", (e) => {
@@ -272,6 +269,7 @@ if (wheelBtn) {
   });
 }
 
+// Autocomplete
 let acTimer = null;
 if (cityInput) {
   cityInput.addEventListener("input", () => {
@@ -334,7 +332,9 @@ if (acList) {
   });
 }
 
+/* ---------- Favorites ---------- */
 const LS_KEY = "funcult:favorites";
+
 function getFavs() {
   try {
     const a = JSON.parse(localStorage.getItem(LS_KEY) || "[]");
@@ -396,5 +396,8 @@ if (saveFavBtn) {
   });
 }
 
+/* ---------- Boot ---------- */
 if (favBar) loadFavs();
-searchCity(DEFAULT_CITY);
+window.addEventListener("DOMContentLoaded", () => {
+  searchCity(DEFAULT_CITY);
+});
