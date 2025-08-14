@@ -115,7 +115,7 @@ img:hover {
   margin-top: 0.25rem;
 }
 .rainbow-text {
-  background-image: linear-gradient(to left, violet, yellow, orange, red);
+  background-image: linear-gradient(to left, violet, yellow, pink, red);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -149,13 +149,17 @@ footer a {
   color: #e62a97;
   text-decoration: underline;
 }
+.units a.active:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
 
 /* Location button */
 #current-location-button {
   border-radius: 50%;
   margin: 10px 0;
-  background: radial-gradient(circle at 30% 30%, #fdbc5b, #d98f29);
-  border: 4px solid #111;
+  background: radial-gradient(circle at 30% 30%, #fd5be2, #eb7dc6);
+  border: 4px solid pink;
   width: 84px;
   height: 84px;
   font-size: 34px;
@@ -243,8 +247,12 @@ footer a {
   border-radius: 999px;
   padding: 6px 12px;
   border: 1px solid #fdbc5b;
-  background: #fff5ea;
+  background: pink;
   color: #111;
   font-weight: 800;
   cursor: pointer;
+}
+.btn-save:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
 }
