@@ -23,6 +23,10 @@ h1 {
   color: pink;
   text-align: center;
 }
+h1:hover {
+  transition: 0.4s;
+  filter: hue-rotate(353deg);
+}
 h3 {
   color: pink;
   filter: saturate(353deg);
@@ -97,9 +101,9 @@ img:hover {
   background: #fff5ea;
 }
 .submit:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: hue-rotate(45deg) saturate(1.4);
   transition: 0.4s;
-
-  filter: hue-rotate(353deg);
 }
 #search-form {
   color: pink;
@@ -246,7 +250,7 @@ footer a {
 .btn-save {
   border-radius: 999px;
   padding: 6px 12px;
-  border: 1px solid #fdbc5b;
+  border: 1px solid #f7b4ee;
   background: pink;
   color: #111;
   font-weight: 800;
