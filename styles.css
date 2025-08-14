@@ -116,6 +116,7 @@ img:hover {
 }
 .rainbow-text {
   background-image: linear-gradient(to left, violet, pink, yellow, white);
+  max-width: 100px;
 }
 .rainbow-text:hover {
   transition: 0.4s;
