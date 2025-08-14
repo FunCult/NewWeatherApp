@@ -154,6 +154,8 @@ footer a {
   text-decoration: underline;
 }
 .units a.active:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: hue-rotate(45deg) saturate(1.4);
   transition: 0.4s;
   filter: hue-rotate(353deg);
 }
@@ -259,6 +261,8 @@ footer a {
   cursor: pointer;
 }
 .btn-save:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: hue-rotate(45deg) saturate(1.4);
   transition: 0.4s;
   filter: hue-rotate(353deg);
 }
