@@ -214,7 +214,9 @@ footer a {
   cursor: pointer;
 }
 .ac-item:hover {
-  background: #222;
+  transform: scale(1.1) rotate(10deg);
+  filter: hue-rotate(45deg) saturate(1.4);
+  background: pink;
   filter: hue-rotate(353deg);
 }
 
