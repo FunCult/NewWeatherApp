@@ -91,7 +91,7 @@ img:hover {
 /* Buttons */
 .submit {
   color: pink;
-  border: 1px solid #faa4d9;
+  border: 1px solid #ff83d0;
   border-radius: 10px;
   padding: 8px 14px;
   background: #fff5ea;
@@ -115,8 +115,11 @@ img:hover {
   margin-top: 0.25rem;
 }
 .rainbow-text {
-  background-image: linear-gradient(to left, violet, pink, yellow, white);
-  max-width: fit-content;
+  background-image: linear-gradient(to left, violet, yellow, orange, red);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 .rainbow-text:hover {
   transition: 0.4s;
