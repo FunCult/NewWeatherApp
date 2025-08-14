@@ -1,21 +1,15 @@
-/* ===============================
-   FUNCULT Weather — Pink Coral Theme
-   Drop-in styles
-================================= */
-
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
-  align-items: center; /* Vertical center */
-  justify-content: center; /* Horizontal center */
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: pink;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial,
     sans-serif;
 }
 
-/* Pointer cursor on interactive stuff */
 button,
 input[type="submit"],
 .chip,
@@ -25,7 +19,6 @@ a,
   cursor: pointer;
 }
 
-/* Headings */
 h1 {
   color: pink;
   text-align: center;
@@ -54,7 +47,6 @@ h4:hover {
   transition: 0.4s;
 }
 
-/* Paragraphs */
 p {
   margin: auto;
   padding: 0;
@@ -68,14 +60,12 @@ p:hover {
   filter: hue-rotate(353deg);
 }
 
-/* Image hover */
 img:hover {
   transition: 0.4s;
   filter: hue-rotate(353deg);
   cursor: crosshair;
 }
 
-/* App wrapper */
 .weather-app-wrapper {
   max-width: 860px;
   margin: 30px auto;
@@ -95,14 +85,12 @@ img:hover {
   filter: hue-rotate(45deg);
 }
 
-/* Cloud icon */
 .cloud img {
   max-width: 80px;
   display: block;
   margin: 0 auto 8px;
 }
 
-/* Buttons */
 .submit {
   color: pink;
   border: 1px solid #ff83d0;
@@ -116,7 +104,6 @@ img:hover {
   filter: hue-rotate(45deg) saturate(1.4);
 }
 
-/* Search form */
 #search-form {
   color: pink;
 }
@@ -125,7 +112,6 @@ img:hover {
   filter: hue-rotate(353deg);
 }
 
-/* Special text styles */
 .pacifica {
   color: sandybrown;
   text-align: center;
@@ -143,14 +129,12 @@ img:hover {
   filter: hue-rotate(353deg);
 }
 
-/* Layout helpers */
 .temp-row {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Links & units */
 footer a {
   color: #ffb66c;
   text-decoration: underline;
@@ -169,7 +153,6 @@ footer a {
   filter: hue-rotate(45deg) saturate(1.4);
 }
 
-/* Location button */
 #current-location-button {
   border-radius: 50%;
   margin: 10px 0;
@@ -190,7 +173,6 @@ footer a {
   filter: hue-rotate(45deg) saturate(1.4);
 }
 
-/* Forecast boxes */
 #forecast {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -205,7 +187,6 @@ footer a {
   padding: 8px 6px;
 }
 
-/* Autocomplete list */
 .ac-wrap {
   position: relative;
   max-width: 520px;
@@ -234,7 +215,6 @@ footer a {
   filter: hue-rotate(353deg);
 }
 
-/* Favorites */
 .fav-bar {
   display: flex;
   gap: 8px;
@@ -263,7 +243,6 @@ footer a {
   opacity: 1;
 }
 
-/* Save button */
 .btn-save {
   border-radius: 999px;
   padding: 6px 12px;
