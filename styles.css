@@ -90,15 +90,15 @@ img:hover {
 }
 /* Buttons */
 .submit {
-  color: coral;
-  border: 1px solid #fdbc5b;
+  color: pink;
+  border: 1px solid #faa4d9;
   border-radius: 10px;
   padding: 8px 14px;
   background: #fff5ea;
 }
 .submit:hover {
   transition: 0.4s;
-  transition: 0.4s;
+
   filter: hue-rotate(353deg);
 }
 #search-form {
@@ -115,20 +115,7 @@ img:hover {
   margin-top: 0.25rem;
 }
 .rainbow-text {
-  background-image: linear-gradient(
-    to left,
-    violet,
-    indigo,
-    blue,
-    green,
-    yellow,
-    orange,
-    red
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
+  background-image: linear-gradient(to left, violet, pink, yellow, white);
 }
 .rainbow-text:hover {
   transition: 0.4s;
