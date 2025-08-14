@@ -214,8 +214,6 @@ footer a {
   cursor: pointer;
 }
 .ac-item:hover {
-  transform: scale(1.1) rotate(10deg);
-  filter: hue-rotate(45deg) saturate(1.4);
   background: pink;
   filter: hue-rotate(353deg);
 }
@@ -238,8 +236,10 @@ footer a {
   cursor: pointer;
 }
 .chip:hover {
+  transform: scale(1.1) rotate(10deg);
+  filter: hue-rotate(45deg) saturate(1.4);
   filter: hue-rotate(353deg);
-  background: #222;
+  background: pink;
 }
 .chip .del {
   margin-left: 6px;
